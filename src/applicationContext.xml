@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!--  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 	    <property name="driverClass" value="${jdbc.driverClassName}"/>
 	    <property name="jdbcUrl" value="${jdbc.url}"/>
 	    <property name="user" value="${jdbc.username}"/>
@@ -27,7 +27,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
-                <value>com.lxl.model</value>
+                <value>com.lxl.employee.model</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -41,7 +41,7 @@
         </property>
     </bean>
 	
-	<bean id="productAction" class="com.lxl.action.ProductAction" scope="prototype">
+	<!-- <bean id="productAction" class="com.lxl.action.ProductAction" scope="prototype">
 		<property name="productService" ref="productService" />
 	</bean>
 
@@ -58,6 +58,6 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <tx:annotation-driven/>
--->
+    <tx:annotation-driven/> -->
+
 </beans>
