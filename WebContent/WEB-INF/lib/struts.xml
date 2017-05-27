@@ -8,10 +8,14 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
 
-    <!--  <package name="product" namespace="/" extends="struts-default">
-    	<action name="product_*" class="productAction" method="{1}">
-    		<result>/product_add_success.jsp</result>
+    <package name="log" namespace="/" extends="struts-default">
+    	<action name="login" class="logAction" method="login">
+    		<result name="success">/admin/index.jsp</result>
+    		<result name="error">/admin/sign-in.jsp</result>
+    	</action>
+    	<action name="logout" class="logAction" method="logout">
+    		<result name="success">/admin/sign-in.jsp</result>
     	</action>
     </package>
--->
+
 </struts>

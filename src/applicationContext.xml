@@ -41,11 +41,10 @@
         </property>
     </bean>
 	
-	<!-- <bean id="productAction" class="com.lxl.action.ProductAction" scope="prototype">
-		<property name="productService" ref="productService" />
+	<bean id="logAction" class="com.lxl.employee.action.LogAction" scope="prototype">
 	</bean>
 
-	<bean id="productDao" class="com.lxl.dao.ProductDao">
+	<!-- <bean id="productDao" class="com.lxl.dao.ProductDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
