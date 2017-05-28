@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap Admin</title>
+    <title>Administration</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -59,32 +59,7 @@
   <!--[if (gt IE 9)|!(IE)]><!--> 
   <body class=""> 
   <!--<![endif]-->
-    
-    <div class="navbar">
-        <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    
-                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">Settings</a></li>
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> <s:property value="#session.username"/>
-                            <i class="icon-caret-down"></i>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">My Account</a></li>
-                            <li class="divider"></li>
-                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                            <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="logout">Logout</a></li>
-                        </ul>
-                    </li>
-                    
-                </ul>
-                <a class="brand" href="index.html"><span class="first">Your</span> <span class="second">Company</span></a>
-        </div>
-    </div>
-    
+    <jsp:include page="navbar.jsp"></jsp:include>
 
 
     <div class="sidebar-nav">
@@ -95,7 +70,7 @@
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="index.html">Home</a></li>
-            <li ><a href="users.html">Sample List</a></li>
+            <li ><a href="<%=basePath %>admin/department_list">Department Management</a></li>
             <li ><a href="user.html">Sample Item</a></li>
             <li ><a href="media.html">Media</a></li>
             <li ><a href="calendar.html">Calendar</a></li>
@@ -322,13 +297,6 @@
         </div>
     </div>
 </div>
-
-
-                    
-                    <footer>
-                        <hr>
-                    </footer>
-                    
             </div>
         </div>
     </div>

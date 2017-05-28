@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%  
+	String path = request.getContextPath();  
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap Admin</title>
+    <title>Sign in</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -72,7 +76,7 @@
         <div class="block">
             <p class="block-heading">Sign In</p>
             <div class="block-body">
-                <form action="login" method="post">
+                <form action="<%=basePath %>admin/login" method="post">
                 	<s:fielderror fieldName="loginError" cssStyle="color : red"></s:fielderror>
                     <label>Username</label>
                     <input type="text" class="span12" placeholder="Username (admin)" name="username">

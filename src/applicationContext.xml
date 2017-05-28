@@ -44,12 +44,16 @@
 	<bean id="logAction" class="com.lxl.employee.action.LogAction" scope="prototype">
 	</bean>
 
-	<!-- <bean id="productDao" class="com.lxl.dao.ProductDao">
+	<bean id="departmentDao" class="com.lxl.employee.dao.impl.DepartmentDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="productService" class="com.lxl.service.ProductService">
-		<property name="productDao" ref="productDao" />
+	<bean id="departmentService" class="com.lxl.employee.service.impl.DepartmentServiceImpl">
+		<property name="DepartmentDao" ref="departmentDao" />
+	</bean>
+	
+	<bean id="departmentAction" class="com.lxl.employee.action.DepartmentAction">
+		<property name="DepartmentService" ref="departmentService" />
 	</bean>
 	
 	<bean id="transactionManager"
@@ -57,6 +61,6 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <tx:annotation-driven/> -->
+    <tx:annotation-driven/>
 
 </beans>
