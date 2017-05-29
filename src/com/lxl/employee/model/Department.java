@@ -1,8 +1,12 @@
 package com.lxl.employee.model;
 
-import java.util.Set;
+
+import java.util.List;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Department {
@@ -12,7 +16,7 @@ public class Department {
 	private String name;
 	private String description;
 	@OneToMany(mappedBy = "department")
-	private Set<Employee> employees;
+	private List<Employee> employees;
 
 	public Integer getId() {
 		return id;
@@ -38,11 +42,11 @@ public class Department {
 		this.description = description;
 	}
 
-	public Set<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(Set<Employee> employees) {
+	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
 }
