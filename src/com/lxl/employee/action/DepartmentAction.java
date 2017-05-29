@@ -26,6 +26,23 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		ActionContext.getContext().put("departments", departments);
 		return "list";
 	}
+	
+	public String edit() {
+		departmentService.edit(department);
+		return SUCCESS;
+	}
+	
+	public String query() {
+		Department d = departmentService.queryById(department.getId());
+		ActionContext.getContext().put("name", d.getName());
+		ActionContext.getContext().put("description", d.getDescription());
+		return "query";
+	}
+	
+	public String delete() {
+		departmentService.deleteById(department.getId());
+		return SUCCESS;
+	}
 
 	@Override
 	public Department getModel() {

@@ -13,7 +13,12 @@ public interface DepartmentDao {
 	@Transactional
 	public Integer save(Department department);
 	
-	public boolean update(Department department);
-	
-	public boolean delete(Department department);
+	@Transactional
+	public void update(Department department);
+
+	@Transactional
+	public Department queryById(Integer id);
+
+	@Transactional
+	public void deleteById(Integer id);
 }

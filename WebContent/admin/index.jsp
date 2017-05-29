@@ -69,7 +69,7 @@
 
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.jsp">Home</a></li>
             <li ><a href="<%=basePath %>admin/department_list">Department Management</a></li>
             <li ><a href="user.html">Sample Item</a></li>
             <li ><a href="media.html">Media</a></li>

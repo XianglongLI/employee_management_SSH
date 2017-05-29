@@ -12,7 +12,9 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	
 	@Override
 	public List<Department> list() {
-		List<Department> departments = sessionFactory.getCurrentSession().createQuery("select d from Department d").list();
+		@SuppressWarnings("unchecked")
+		List<Department> departments = sessionFactory.getCurrentSession()
+									   .createQuery("select d from Department d").list();
 		return departments;
 	}
 
@@ -23,19 +25,28 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	}
 
 	@Override
-	public boolean update(Department department) {
-		// TODO Auto-generated method stub
-		return false;
+	public void update(Department department) {
+		sessionFactory.getCurrentSession()
+		.createQuery("update Department d set d.name = ?, d.description = ? where d.id = ?")
+		.setParameter(0, department.getName())
+		.setParameter(1, department.getDescription())
+		.setParameter(2, department.getId()).executeUpdate();
 	}
 
 	@Override
-	public boolean delete(Department department) {
-		// TODO Auto-generated method stub
-		return false;
+	public void deleteById(Integer id) {
+		sessionFactory.getCurrentSession()
+		.createQuery("delete from Department d where d.id = ?")
+		.setParameter(0, id).executeUpdate();
 	}
 	
+	@Override
+	public Department queryById(Integer id) {
+		return sessionFactory.getCurrentSession().get(Department.class, id);
+	}
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	
 }

@@ -22,6 +22,7 @@
     	<action name="*_*" class="{1}Action" method="{2}">
     		<result name="success">/admin/{1}_{2}_success.jsp</result>
     		<result name="list">/admin/{1}_{2}.jsp</result>
+    		<result name="query">/admin/{1}_edit.jsp</result>
     	</action>
     </package>
 

@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Add Department Success</title>
+    <title>Edit Department</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -99,7 +99,7 @@
         
         <div class="header">
             
-            <h1 class="page-title">Add Department</h1>
+            <h1 class="page-title">Edit Department</h1>
         </div>
         
                 <ul class="breadcrumb">
@@ -114,20 +114,26 @@
 <div class="well">
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in">
-        <div class="alert alert-success" role="alert">Add department success!</div>
-        <div class="alert alert-info" role="alert">The information of department you have added: </div>
-        <label>Department Id</label>
+        <form method="post" action="department_edit">            
+<div class="btn-toolbar">
+    <button class="btn btn-primary" type="submit"><i class="icon-save"></i> Save</button>
+    <button class="btn btn-default" type="reset">Reset</button>
+  <div class="btn-group">
+  </div>
+</div>
+		<s:debug></s:debug>
+		<label>Department Id</label>
         <input type="text" class="input-xlarge" name="id" readonly="readonly" value="<s:property value='id' />">
         <label>Department Name</label>
-        <input type="text" class="input-xlarge" name="name" readonly="readonly" value="<s:property value='name' />">
+        <input type="text" class="input-xlarge" name="name" value="<s:property value='name' />">
         <label>Description</label>
-        <input type="text" class="input-xlarge" name="description" readonly="readonly" value="<s:property value='description' />">
-        <br/>
-        <a href="../admin/department_list">return to list</a>
+        <input type="text" class="input-xlarge" name="description" value="<s:property value='description' />">
+    </form>
       </div>
   </div>
 
 </div>
+
             </div>
         </div>
     </div>
@@ -135,4 +141,5 @@
     <script src="lib/bootstrap/js/bootstrap.js"></script>
   </body>
 </html>
+
 

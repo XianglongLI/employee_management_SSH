@@ -38,6 +38,18 @@
             font-weight: bold;
         }
     </style>
+    
+    <script>
+	    function delcfm(url) {  
+	        $('#url').val(url);
+	        $('#myModal').modal();  
+	  	} 
+	    
+	    function urlSubmit(){  
+    	   var url = $.trim($("#url").val());
+    	   window.location.href = url;    
+	    }  
+    </script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -134,8 +146,8 @@
           <td><s:property value="#d.description"/></td>
           <td><a href="">show employees</a></td>
           <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+              <a href="<%=basePath %>admin/department_query?id=<s:property value='#d.id'/>"><i class="icon-pencil"></i></a>
+              <a href="javascript:delcfm('<%=basePath %>admin/department_delete?id=<s:property value='#d.id' />');"><i class="icon-remove"></i></a>
           </td>
         </tr>
         </s:iterator>
@@ -162,24 +174,16 @@
         <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete the department?</p>
     </div>
     <div class="modal-footer">
+    	<input type="hidden" id="url"/>
         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <a href=""><button class="btn btn-danger" data-dismiss="modal">Delete</button></a>
+        <button class="btn btn-danger" data-dismiss="modal" onclick="urlSubmit()">Delete</button>
     </div>
 </div>
             </div>
         </div>
     </div>
     
-
-
     <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script>
-    
   </body>
 </html>
 

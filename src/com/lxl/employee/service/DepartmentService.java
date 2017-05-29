@@ -8,4 +8,10 @@ public interface DepartmentService {
 	public Integer add(Department department);
 
 	public List<Department> list();
+	
+	public void edit(Department department);
+
+	public Department queryById(Integer id);
+
+	public void deleteById(Integer id);
 }

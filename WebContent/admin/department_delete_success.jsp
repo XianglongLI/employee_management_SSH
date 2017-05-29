@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Add Department Success</title>
+    <title>Delete Department Success</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -38,6 +38,17 @@
             font-weight: bold;
         }
     </style>
+    
+    <script>
+    	setTimeout(function() {
+    		window.location.href = '<%=basePath %>admin/department_list';
+    	}, 5000);
+    	
+    	setInterval(function() {
+			$('#timer').html($('#timer').html() - 1);
+		}, 1000);
+    </script>
+    	
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -114,16 +125,9 @@
 <div class="well">
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in">
-        <div class="alert alert-success" role="alert">Add department success!</div>
-        <div class="alert alert-info" role="alert">The information of department you have added: </div>
-        <label>Department Id</label>
-        <input type="text" class="input-xlarge" name="id" readonly="readonly" value="<s:property value='id' />">
-        <label>Department Name</label>
-        <input type="text" class="input-xlarge" name="name" readonly="readonly" value="<s:property value='name' />">
-        <label>Description</label>
-        <input type="text" class="input-xlarge" name="description" readonly="readonly" value="<s:property value='description' />">
-        <br/>
-        <a href="../admin/department_list">return to list</a>
+        <div class="alert alert-success" role="alert">Delete department success!</div>
+        <div class="alert alert-warning" role="alert">return to list in <span id="timer">5</span>s</div>
+        <a href="../admin/department_list">return to list now</a>
       </div>
   </div>
 

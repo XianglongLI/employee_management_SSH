@@ -23,4 +23,19 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return departmentDao.list();
 	}
 
+	@Override
+	public void edit(Department department) {
+		departmentDao.update(department);
+	}
+
+	@Override
+	public Department queryById(Integer id) {
+		return departmentDao.queryById(id);
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		departmentDao.deleteById(id);
+	}
+
 }
