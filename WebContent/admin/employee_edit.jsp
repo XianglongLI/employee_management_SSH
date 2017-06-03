@@ -1,8 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="loginValidate.jsp" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap Admin</title>
+    <title>Edit Employee</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -55,34 +59,7 @@
   <!--[if (gt IE 9)|!(IE)]><!--> 
   <body class=""> 
   <!--<![endif]-->
-    
-    <div class="navbar">
-        <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    
-                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">Settings</a></li>
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> Jack Smith
-                            <i class="icon-caret-down"></i>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">My Account</a></li>
-                            <li class="divider"></li>
-                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                            <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
-                        </ul>
-                    </li>
-                    
-                </ul>
-                <a class="brand" href="index.html"><span class="first">Your</span> <span class="second">Company</span></a>
-        </div>
-    </div>
-    
-
-
+   <jsp:include page="navbar.jsp"></jsp:include>
     
     <div class="sidebar-nav">
         <form class="search form-inline">
@@ -91,19 +68,9 @@
 
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="index.html">Home</a></li>
-            <li ><a href="users.html">Sample List</a></li>
-            <li ><a href="user.html">Sample Item</a></li>
-            <li ><a href="media.html">Media</a></li>
-            <li class="active"><a href="calendar.html">Calendar</a></li>
-            
-        </ul>
-
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>Account<span class="label label-info">+3</span></a>
-        <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">Sign In</a></li>
-            <li ><a href="sign-up.html">Sign Up</a></li>
-            <li ><a href="reset-password.html">Reset Password</a></li>
+            <li><a href="index.jsp">Home</a></li>
+            <li class="active"><a href="<%=basePath %>admin/department_list">Department Management</a></li>
+            <li><a href="<%=basePath %>admin/employee_list">Employee Management</a></li>
         </ul>
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
@@ -129,84 +96,51 @@
     <div class="content">
         
         <div class="header">
-            <div class="stats">
-    <p class="stat"><span class="number">5</span>users</p>
-    <p class="stat"><span class="number">19</span>Events</p>
-</div>
-
-            <h1 class="page-title">Calendar</h1>
+            
+            <h1 class="page-title">Edit Employee</h1>
         </div>
         
                 <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-            <li class="active">Calendar</li>
+            <li><a href="index.jsp">Home</a> <span class="divider">/</span></li>
+            <li><a href="department_list">Employees</a> <span class="divider">/</span></li>
+            <li class="active">Employee</li>
         </ul>
 
         <div class="container-fluid">
             <div class="row-fluid">
-                    
 
+<div class="well">
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in">
+        <form method="post" action="employee_edit">            
+<div class="btn-toolbar">
+    <button class="btn btn-primary" type="submit"><i class="icon-save"></i> Save</button>
+    <button class="btn btn-default" type="reset">Reset</button>
+  <div class="btn-group">
+  </div>
+</div>
+		<s:debug></s:debug>
+		<label>Employee Id</label>
+        <input type="text" class="input-xlarge" name="id" readonly="readonly" value="<s:property value='id' />">
+        <label>Employee Name</label>
+        <input type="text" class="input-xlarge" name="name" value="<s:property value='name' />">
+        <label>Age</label>
+        <input type="text" class="input-xlarge" name="age" readonly="readonly" value="<s:property value='age' />">
+        <label>Join Time</label>
+        <input type="text" class="input-xlarge" name="joinTime" readonly="readonly" value='<s:date name="joinTime" format="yyyy-MM-dd" />'>
+        <label>Department</label>
+        <input type="text" class="input-xlarge" name="department.name" readonly="readonly" value="<s:property value='department.name' />">
+    </form>
+      </div>
+  </div>
 
-<link rel='stylesheet' type='text/css' href='lib/fullcalendar-1.5.3/fullcalendar/fullcalendar.css' />
-<link rel='stylesheet' type='text/css' href='lib/fullcalendar-1.5.3/fullcalendar/fullcalendar.print.css' media='print' />
-<script type='text/javascript' src='lib/fullcalendar-1.5.3/fullcalendar/fullcalendar.min.js'></script>
+</div>
 
-<script type='text/javascript'>
-
-	$(document).ready(function() {
-
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-
-		$('#calendar').fullCalendar({
-            header: false,
-		});
-        $('#calendar').fullCalendar('next');
-
-	});
-
-</script>
-<style type='text/css'>
-
-	#calendar {
-		width: 100%;
-		margin: 0 auto;
-		}
-
-</style>
-
-
-
-<h2>Upcoming Events</h2>
-<div id='calendar'></div>
-
-
-                    
-                    <footer>
-                        <hr>
-                        
-                        <p class="pull-right">Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-                        
-
-                        <p>&copy; 2012 <a href="#" target="_blank">Portnine</a></p>
-                    </footer>
-                    
             </div>
         </div>
     </div>
     
-
-
     <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script>
-    
   </body>
 </html>
 

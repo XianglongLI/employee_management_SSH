@@ -69,12 +69,9 @@
 
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="index.jsp">Home</a></li>
-            <li ><a href="<%=basePath %>admin/department_list">Department Management</a></li>
-            <li ><a href="user.html">Sample Item</a></li>
-            <li ><a href="media.html">Media</a></li>
-            <li ><a href="calendar.html">Calendar</a></li>
-            
+            <li class="active"><a href="index.jsp">Home</a></li>
+            <li><a href="<%=basePath %>admin/department_list">Department Management</a></li>
+            <li><a href="<%=basePath %>admin/employee_list">Employee Management</a></li>
         </ul>
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>

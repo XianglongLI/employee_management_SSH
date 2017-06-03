@@ -11,6 +11,7 @@ public class Employee {
 	private Integer id;
 	private String name;
 	private Integer age;
+	@Column(columnDefinition = "date")
 	private Date joinTime;
 	@ManyToOne
 	private Department department;
@@ -54,4 +55,5 @@ public class Employee {
 	public void setJoinTime(Date joinTime) {
 		this.joinTime = joinTime;
 	}
+	
 }

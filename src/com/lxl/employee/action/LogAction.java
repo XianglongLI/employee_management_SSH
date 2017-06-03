@@ -8,7 +8,6 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LogAction extends ActionSupport implements ServletRequestAware {
-	private HttpServletRequest request;
 	private HttpSession session;
 	private String username;
 	private String password;
@@ -46,7 +45,6 @@ public class LogAction extends ActionSupport implements ServletRequestAware {
 
 	@Override
 	public void setServletRequest(HttpServletRequest request) {
-		this.request = request;
 		this.session = request.getSession();
 	}
 

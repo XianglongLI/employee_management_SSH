@@ -16,15 +16,15 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		this.departmentService = departmentService;
 	}
 	
-	public String add() {
-		departmentService.add(department);
-		return SUCCESS;
-	}
-	
 	public String list() {
 		List<Department> departments = departmentService.list();
 		ActionContext.getContext().put("departments", departments);
 		return "list";
+	}
+	
+	public String add() {
+		departmentService.add(department);
+		return SUCCESS;
 	}
 	
 	public String edit() {

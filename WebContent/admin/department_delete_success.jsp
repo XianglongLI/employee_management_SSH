@@ -80,10 +80,8 @@
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="index.jsp">Home</a></li>
-            <li class="active"><a href="department_list.jsp">Department Management</a></li>
-            <li ><a href="user.html">Sample Item</a></li>
-            <li ><a href="media.html">Media</a></li>
-            <li ><a href="calendar.html">Calendar</a></li>
+            <li class="active"><a href="<%=basePath %>admin/department_list">Department Management</a></li>
+            <li><a href="<%=basePath %>admin/employee_list">Employee Management</a></li>
         </ul>
 
         <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
@@ -114,8 +112,8 @@
         </div>
         
                 <ul class="breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-            <li><a href="users.html">Departments</a> <span class="divider">/</span></li>
+            <li><a href="index.jsp">Home</a> <span class="divider">/</span></li>
+            <li><a href="department_list">Departments</a> <span class="divider">/</span></li>
             <li class="active">Department</li>
         </ul>
 
@@ -127,7 +125,7 @@
       <div class="tab-pane active in">
         <div class="alert alert-success" role="alert">Delete department success!</div>
         <div class="alert alert-warning" role="alert">return to list in <span id="timer">5</span>s</div>
-        <a href="../admin/department_list">return to list now</a>
+        <a href="department_list">return to list now</a>
       </div>
   </div>
 

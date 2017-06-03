@@ -5,9 +5,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 @Entity
 public class Department {
 	@Id

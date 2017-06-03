@@ -52,7 +52,20 @@
 		<property name="DepartmentDao" ref="departmentDao" />
 	</bean>
 	
-	<bean id="departmentAction" class="com.lxl.employee.action.DepartmentAction">
+	<bean id="departmentAction" class="com.lxl.employee.action.DepartmentAction" scope="prototype">
+		<property name="DepartmentService" ref="departmentService" />
+	</bean>
+	
+	<bean id="employeeDao" class="com.lxl.employee.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="employeeService" class="com.lxl.employee.service.impl.EmployeeServiceImpl">
+		<property name="EmployeeDao" ref="employeeDao" />
+	</bean>
+	
+	<bean id="employeeAction" class="com.lxl.employee.action.EmployeeAction" scope="prototype">
+		<property name="EmployeeService" ref="employeeService" />
 		<property name="DepartmentService" ref="departmentService" />
 	</bean>
 	

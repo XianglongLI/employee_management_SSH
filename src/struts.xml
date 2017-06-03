@@ -8,6 +8,13 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
 
+	<package name="defaultAction" namespace="/admin" extends="struts-default">
+        <default-action-ref name="error"></default-action-ref>    
+        <action name="error">
+            <result>/admin/404.html</result>
+        </action>
+    </package>
+
     <package name="log" namespace="/admin" extends="struts-default">
     	<action name="login" class="logAction" method="login">
     		<result name="success">/admin/index.jsp</result>
@@ -18,11 +25,20 @@
     	</action>
     </package>
     
-    <package name="management" namespace="/admin" extends="struts-default">
-    	<action name="*_*" class="{1}Action" method="{2}">
-    		<result name="success">/admin/{1}_{2}_success.jsp</result>
-    		<result name="list">/admin/{1}_{2}.jsp</result>
-    		<result name="query">/admin/{1}_edit.jsp</result>
+    <package name="department" namespace="/admin" extends="struts-default">
+    	<action name="department_*" class="departmentAction" method="{1}">
+    		<result name="success">/admin/department_{1}_success.jsp</result>
+    		<result name="list">/admin/department_{1}.jsp</result>
+    		<result name="query">/admin/department_edit.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="employee" namespace="/admin" extends="struts-default">
+    	<action name="employee_*" class="employeeAction" method="{1}">
+    		<result name="success">/admin/employee_{1}_success.jsp</result>
+    		<result name="list">/admin/employee_{1}.jsp</result>
+    		<result name="query">/admin/employee_edit.jsp</result>
+    		<result name="departmentList">/admin/employee_add.jsp</result>
     	</action>
     </package>
 
