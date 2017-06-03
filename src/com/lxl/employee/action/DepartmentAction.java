@@ -3,6 +3,7 @@ package com.lxl.employee.action;
 import java.util.List;
 
 import com.lxl.employee.model.Department;
+import com.lxl.employee.model.Employee;
 import com.lxl.employee.service.DepartmentService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -34,14 +35,22 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	
 	public String query() {
 		Department d = departmentService.queryById(department.getId());
-		ActionContext.getContext().put("name", d.getName());
-		ActionContext.getContext().put("description", d.getDescription());
+		ActionContext.getContext().getValueStack().set("name", d.getName());
+		ActionContext.getContext().getValueStack().set("description", d.getDescription());
 		return "query";
 	}
 	
 	public String delete() {
 		departmentService.deleteById(department.getId());
 		return SUCCESS;
+	}
+	
+	public String employeesForDepartment() {
+		List<Employee> employees = departmentService.getEmployeesById(department.getId());
+		ActionContext.getContext().put("employees", employees);
+		Department d = departmentService.queryById(department.getId());
+		ActionContext.getContext().getValueStack().set("name", d.getName());
+		return "employees";
 	}
 
 	@Override

@@ -1,8 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="loginValidate.jsp" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap Admin</title>
+    <title>Delete Employee Success</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -34,6 +38,17 @@
             font-weight: bold;
         }
     </style>
+    
+    <script>
+    	setTimeout(function() {
+    		window.location.href = '<%=basePath %>admin/employee_list';
+    	}, 5000);
+    	
+    	setInterval(function() {
+			$('#timer').html($('#timer').html() - 1);
+		}, 1000);
+    </script>
+    	
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -55,51 +70,54 @@
   <!--[if (gt IE 9)|!(IE)]><!--> 
   <body class=""> 
   <!--<![endif]-->
+   <jsp:include page="navbar.jsp"></jsp:include>
     
-    <div class="navbar">
-        <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    
-                </ul>
-                <a class="brand" href="index.html"><span class="first">Your</span> <span class="second">Company</span></a>
-        </div>
+    <div class="sidebar-nav">
+        <form class="search form-inline">
+            <input type="text" placeholder="Search...">
+        </form>
+
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
+        <ul id="dashboard-menu" class="nav nav-list collapse in">
+            <li><a href="index.jsp">Home</a></li>
+            <li class="active"><a href="<%=basePath %>admin/department_list">Department Management</a></li>
+            <li><a href="<%=basePath %>admin/employee_list">Employee Management</a></li>
+        </ul>
     </div>
     
 
-
     
+    <div class="content">
+        
+        <div class="header">
+            
+            <h1 class="page-title">Delete Employee</h1>
+        </div>
+        
+                <ul class="breadcrumb">
+            <li><a href="index.jsp">Home</a> <span class="divider">/</span></li>
+            <li><a href="department_list">Employees</a> <span class="divider">/</span></li>
+            <li class="active">Employee</li>
+        </ul>
 
-    
-        <div class="row-fluid">
-    <div class="dialog">
-        <div class="block">
-            <p class="block-heading">Reset your password</p>
-            <div class="block-body">
-                <form>
-                    <label>Email Address</label>
-                    <input type="text" class="span12"></input>
-                    <a href="index.html" class="btn btn-primary pull-right">Send</a>
-                    <div class="clearfix"></div>
-                </form>
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+<div class="well">
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in">
+        <div class="alert alert-success" role="alert">Delete employee success!</div>
+        <div class="alert alert-warning" role="alert">return to list in <span id="timer">5</span>s</div>
+        <a href="employee_list">return to list now</a>
+      </div>
+  </div>
+
+</div>
             </div>
         </div>
-        <a href="sign-in.html">Sign in to your account</a>
     </div>
-</div>
-
-
     
-
-
     <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script>
-    
   </body>
 </html>
-
 

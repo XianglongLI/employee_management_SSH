@@ -24,6 +24,6 @@
                     </li>
                     
                 </ul>
-                <a class="brand" href="index.html"><span class="first">Your</span> <span class="second">Company</span></a>
+                <a class="brand" href="index.jsp"><span class="first">Author: </span> <span class="second">Xianglong LI</span></a>
         </div>
     </div>

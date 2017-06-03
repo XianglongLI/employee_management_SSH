@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
 
     <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="calendar/WdatePicker.js"></script>
 
     <!-- Demo page code -->
 
@@ -72,23 +73,6 @@
             <li class="active"><a href="<%=basePath %>admin/department_list">Department Management</a></li>
             <li><a href="<%=basePath %>admin/employee_list">Employee Management</a></li>
         </ul>
-
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>Error Pages <i class="icon-chevron-up"></i></a>
-        <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">403 page</a></li>
-            <li ><a href="404.html">404 page</a></li>
-            <li ><a href="500.html">500 page</a></li>
-            <li ><a href="503.html">503 page</a></li>
-        </ul>
-
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>Legal</a>
-        <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li ><a href="terms-and-conditions.html">Terms and Conditions</a></li>
-        </ul>
-
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>Help</a>
-        <a href="faq.html" class="nav-header" ><i class="icon-comment"></i>Faq</a>
     </div>
     
 
@@ -119,17 +103,16 @@
   <div class="btn-group">
   </div>
 </div>
-		<s:debug></s:debug>
 		<label>Employee Id</label>
         <input type="text" class="input-xlarge" name="id" readonly="readonly" value="<s:property value='id' />">
         <label>Employee Name</label>
         <input type="text" class="input-xlarge" name="name" value="<s:property value='name' />">
         <label>Age</label>
-        <input type="text" class="input-xlarge" name="age" readonly="readonly" value="<s:property value='age' />">
+        <input type="text" class="input-xlarge" name="age" value="<s:property value='age' />">
         <label>Join Time</label>
-        <input type="text" class="input-xlarge" name="joinTime" readonly="readonly" value='<s:date name="joinTime" format="yyyy-MM-dd" />'>
+        <input type="text" class="input-xlarge Wdate" onClick="WdatePicker()" name="joinTime" value='<s:date name="joinTime" format="yyyy-MM-dd" />'>
         <label>Department</label>
-        <input type="text" class="input-xlarge" name="department.name" readonly="readonly" value="<s:property value='department.name' />">
+        <s:select name="department.id" headerValue="department.name" list="departments" listKey="id" listValue="name" />
     </form>
       </div>
   </div>

@@ -6,15 +6,19 @@ import org.hibernate.SessionFactory;
 
 import com.lxl.employee.dao.DepartmentDao;
 import com.lxl.employee.model.Department;
+import com.lxl.employee.model.Employee;
 
 public class DepartmentDaoImpl implements DepartmentDao {
 	private SessionFactory sessionFactory;
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	@Override
 	public List<Department> list() {
 		@SuppressWarnings("unchecked")
-		List<Department> departments = sessionFactory.getCurrentSession()
-									   .createQuery("select d from Department d").list();
+		List<Department> departments = sessionFactory.getCurrentSession().createQuery("select d from Department d").list();
 		return departments;
 	}
 
@@ -26,11 +30,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
 
 	@Override
 	public void update(Department department) {
-		sessionFactory.getCurrentSession()
-		.createQuery("update Department d set d.name = ?, d.description = ? where d.id = ?")
-		.setParameter(0, department.getName())
-		.setParameter(1, department.getDescription())
-		.setParameter(2, department.getId()).executeUpdate();
+		sessionFactory.getCurrentSession().update(department);
 	}
 
 	@Override
@@ -45,8 +45,13 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		return sessionFactory.getCurrentSession().get(Department.class, id);
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	@Override
+	public List<Employee> getEmployeesById(Integer id) {
+		Department department = (Department) sessionFactory.getCurrentSession()
+		.createQuery("select d from Department d left join fetch d.employees where d.id=?")
+		.setParameter(0, id).uniqueResult();
+		List<Employee> employees = department.getEmployees();
+		return employees;
 	}
 	
 }

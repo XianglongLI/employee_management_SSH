@@ -17,8 +17,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public List<Employee> list() {
 		@SuppressWarnings("unchecked")
-		List<Employee> employees = sessionFactory.getCurrentSession()
-				   				   .createQuery("select e from Employee e").list();
+		List<Employee> employees = sessionFactory.getCurrentSession().createQuery("select e from Employee e").list();
 		return employees;
 	}
 
@@ -26,6 +25,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public Integer save(Employee employee) {
 		sessionFactory.getCurrentSession().save(employee);
 		return employee.getId();
+	}
+
+	@Override
+	public Employee queryById(Integer id) {
+		return sessionFactory.getCurrentSession().get(Employee.class, id);
+	}
+
+	@Override
+	public void update(Employee employee) {
+		sessionFactory.getCurrentSession().update(employee);
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		sessionFactory.getCurrentSession()
+		.createQuery("delete from Employee e where e.id = ?")
+		.setParameter(0, id).executeUpdate();
 	}
 
 }

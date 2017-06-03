@@ -14,4 +14,13 @@ public interface EmployeeService {
 	@Transactional
 	Integer add(Employee employee);
 
+	@Transactional
+	Employee queryById(Integer id);
+
+	@Transactional
+	void edit(Employee employee);
+
+	@Transactional
+	void deleteById(Integer id);
+
 }

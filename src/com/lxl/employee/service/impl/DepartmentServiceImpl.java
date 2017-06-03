@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lxl.employee.dao.DepartmentDao;
 import com.lxl.employee.model.Department;
+import com.lxl.employee.model.Employee;
 import com.lxl.employee.service.DepartmentService;
 
 public class DepartmentServiceImpl implements DepartmentService {
@@ -36,6 +37,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public void deleteById(Integer id) {
 		departmentDao.deleteById(id);
+	}
+
+	@Override
+	public List<Employee> getEmployeesById(Integer id) {
+		return departmentDao.getEmployeesById(id);
 	}
 
 }

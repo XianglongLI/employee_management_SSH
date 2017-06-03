@@ -10,4 +10,10 @@ public interface EmployeeDao {
 
 	Integer save(Employee employee);
 
+	Employee queryById(Integer id);
+
+	void update(Employee employee);
+
+	void deleteById(Integer id);
+
 }

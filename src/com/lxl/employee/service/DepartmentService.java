@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lxl.employee.model.Department;
+import com.lxl.employee.model.Employee;
 
 public interface DepartmentService {
 	@Transactional
@@ -21,4 +22,7 @@ public interface DepartmentService {
 
 	@Transactional
 	public void deleteById(Integer id);
+
+	@Transactional
+	public List<Employee> getEmployeesById(Integer id);
 }

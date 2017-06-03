@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ include file="loginValidate.jsp" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Department List</title>
+    <title>Edit Employee Success</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -38,18 +38,6 @@
             font-weight: bold;
         }
     </style>
-    
-    <script>
-	    function delcfm(url) {  
-	        $('#url').val(url);
-	        $('#myModal').modal();  
-	  	} 
-	    
-	    function urlSubmit(){  
-    	   var url = $.trim($("#url").val());
-    	   window.location.href = url;    
-	    }  
-    </script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -92,73 +80,38 @@
         
         <div class="header">
             
-            <h1 class="page-title">Departments</h1>
+            <h1 class="page-title">Edit Employee</h1>
         </div>
         
                 <ul class="breadcrumb">
             <li><a href="index.jsp">Home</a> <span class="divider">/</span></li>
-            <li class="active">Departments</li>
+            <li><a href="department_list">Employees</a> <span class="divider">/</span></li>
+            <li class="active">Employee</li>
         </ul>
 
         <div class="container-fluid">
             <div class="row-fluid">
-                    
-<div class="btn-toolbar">
-    <a href="department_add.jsp"><button class="btn btn-primary"><i class="icon-plus"></i> New Department</button></a>
-  <div class="btn-group">
-  </div>
-</div>
-<div class="well">
-    <table class="table">
-      <thead>
-        <tr>
-          <th width="10%">#</th>
-          <th width="20%">Name</th>
-          <th width="40%">Description</th>
-          <th>Employees</th>
-          <th style="width: 26px;"></th>
-        </tr>
-      </thead>
-      <tbody>
-      	<s:iterator value="departments" var="d">
-        <tr>
-          <td><s:property value="#d.id"/></td>
-          <td><s:property value="#d.name"/></td>
-          <td><s:property value="#d.description"/></td>
-          <td><a href="department_employeesForDepartment?id=<s:property value='#d.id' />">show employees</a></td>
-          <td>
-              <a href="<%=basePath %>admin/department_query?id=<s:property value='#d.id'/>"><i class="icon-pencil"></i></a>
-              <a href="javascript:delcfm('<%=basePath %>admin/department_delete?id=<s:property value='#d.id' />');"><i class="icon-remove"></i></a>
-          </td>
-        </tr>
-        </s:iterator>
-      </tbody>
-    </table>
-</div>
-<!-- <div class="pagination">
-    <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">Next</a></li>
-    </ul>
-</div> -->
 
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Delete Confirmation</h3>
-    </div>
-    <div class="modal-body">
-        <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete the department?</p>
-    </div>
-    <div class="modal-footer">
-    	<input type="hidden" id="url"/>
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button class="btn btn-danger" data-dismiss="modal" onclick="urlSubmit()">Delete</button>
-    </div>
+<div class="well">
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in">
+        <div class="alert alert-success" role="alert">Edit employee success!</div>
+        <div class="alert alert-info" role="alert">The information of employee after edited: </div>
+        <label>Employee Id</label>
+        <input type="text" class="input-xlarge" name="id" readonly="readonly" value="<s:property value='id' />">
+        <label>Employee Name</label>
+        <input type="text" class="input-xlarge" name="name" readonly="readonly" value="<s:property value='name' />">
+        <label>Age</label>
+        <input type="text" class="input-xlarge" name="age" readonly="readonly" value="<s:property value='age' />">
+        <label>Join Time</label>
+        <input type="text" class="input-xlarge" name="joinTime" readonly="readonly" value='<s:date name="joinTime" format="yyyy-MM-dd" />'>
+        <label>Department</label>
+        <input type="text" class="input-xlarge" name="department.name" readonly="readonly" value="<s:property value='department.name' />">
+        <br/>
+        <a href="employee_list">return to list</a>
+      </div>
+  </div>
+
 </div>
             </div>
         </div>
@@ -167,5 +120,4 @@
     <script src="lib/bootstrap/js/bootstrap.js"></script>
   </body>
 </html>
-
 
