@@ -87,23 +87,10 @@
                 </form>
             </div>
         </div>
-        <p class="pull-right" style=""><a href="#" target="blank">Theme by Portnine</a></p>
-        <p><a href="reset-password.html">Forgot your password?</a></p>
     </div>
 </div>
 
-
-    
-
-
     <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script>
-    
   </body>
 </html>
 

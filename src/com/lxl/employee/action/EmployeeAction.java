@@ -15,18 +15,27 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	private DepartmentService departmentService;
 	private Employee employee;
 	
+	/**
+	 * list all employees
+	 */
 	public String list() {
 		List<Employee> employees = employeeService.list();
 		ActionContext.getContext().put("employees", employees);
 		return "list";
 	}
 	
+	/**
+	 * add an employee
+	 */
 	public String add() {
 		employeeService.add(employee);
 		employee.setDepartment(departmentService.queryById(employee.getDepartment().getId()));
 		return SUCCESS;
 	}
 	
+	/**
+	 * query an employee by its id
+	 */
 	public String query() {
 		Employee e = employeeService.queryById(employee.getId());
 		ActionContext.getContext().getValueStack().set("name", e.getName()); 
@@ -38,17 +47,26 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		return "query";
 	}
 	
+	/**
+	 * edit an employee
+	 */
 	public String edit() {
 		employeeService.edit(employee);
 		employee.setDepartment(departmentService.queryById(employee.getDepartment().getId()));
 		return SUCCESS;
 	}
 	
+	/**
+	 * delete an employee
+	 */
 	public String delete() {
 		employeeService.deleteById(employee.getId());
 		return SUCCESS;
 	}
 	
+	/**
+	 * query all departments, of which an employee can be part
+	 */
 	public String departmentListForEmployee() {
 		List<Department> departments = departmentService.list();
 		ActionContext.getContext().put("departments", departments);

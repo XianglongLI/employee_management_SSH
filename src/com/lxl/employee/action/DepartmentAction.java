@@ -17,22 +17,34 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		this.departmentService = departmentService;
 	}
 	
+	/**
+	 * list all departments
+	 */
 	public String list() {
 		List<Department> departments = departmentService.list();
 		ActionContext.getContext().put("departments", departments);
 		return "list";
 	}
 	
+	/**
+	 * add a department
+	 */
 	public String add() {
 		departmentService.add(department);
 		return SUCCESS;
 	}
 	
+	/**
+	 * edit a department
+	 */
 	public String edit() {
 		departmentService.edit(department);
 		return SUCCESS;
 	}
 	
+	/**
+	 * query a department by its id
+	 */
 	public String query() {
 		Department d = departmentService.queryById(department.getId());
 		ActionContext.getContext().getValueStack().set("name", d.getName());
@@ -40,11 +52,17 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		return "query";
 	}
 	
+	/**
+	 * delete a department
+	 */
 	public String delete() {
 		departmentService.deleteById(department.getId());
 		return SUCCESS;
 	}
 	
+	/**
+	 * query the employees of a department by department id
+	 */
 	public String employeesForDepartment() {
 		List<Employee> employees = departmentService.getEmployeesById(department.getId());
 		ActionContext.getContext().put("employees", employees);

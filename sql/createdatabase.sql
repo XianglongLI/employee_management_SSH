@@ -1,1 +1,1 @@
-create database employeemanagement;
+create database if not exists employeemanagement;
