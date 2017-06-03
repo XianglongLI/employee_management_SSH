@@ -4,7 +4,7 @@ This is an simple employee management system constructed by struts-2.3.32, sprin
 It involves some basic functions of CRUD under the environment SSH. 
 The version of used database is mysql-5.7.17.
 ## How to use
-This is a project J2EE created under jdk1.8. 
+This is a project J2EE created under jdk1.8 and run on Tomcat9.0. 
 The directory /lib under root directory contains the required jars. 
 The directory /sql under root directory contains the instruction for creating the needed database. 
 To access the database, you should modify the configuration file /src/jdbc.properties.
