@@ -1,6 +1,6 @@
 # employee_management_SSH
 ## Description
-This is an employee management system constructed by struts-2.3.32, spring-4.3.8 and hibernate-5.2.9. 
+This is an simple employee management system constructed by struts-2.3.32, spring-4.3.8 and hibernate-5.2.9 for the purpose of practicing framework SSH. 
 It involves some basic functions of CRUD under the environment SSH. 
 The version of used database is mysql-5.7.17.
 ## How to use
