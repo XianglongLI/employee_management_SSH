@@ -63,9 +63,9 @@
 
 
     <div class="sidebar-nav">
-        <form class="search form-inline">
+        <!-- <form class="search form-inline">
             <input type="text" placeholder="Search...">
-        </form>
+        </form> -->
 
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">

@@ -38,10 +38,10 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	 */
 	public String query() {
 		Employee e = employeeService.queryById(employee.getId());
-		ActionContext.getContext().getValueStack().set("name", e.getName()); 
-		ActionContext.getContext().getValueStack().set("age", e.getAge());
-		ActionContext.getContext().getValueStack().set("joinTime", e.getJoinTime());
-		ActionContext.getContext().getValueStack().set("department", e.getDepartment());
+		ActionContext.getContext().getValueStack().setValue("name", e.getName()); 
+		ActionContext.getContext().getValueStack().setValue("age", e.getAge());
+		ActionContext.getContext().getValueStack().setValue("joinTime", e.getJoinTime());
+		ActionContext.getContext().getValueStack().setValue("department", e.getDepartment());
 		List<Department> departments = departmentService.list();
 		ActionContext.getContext().put("departments", departments);
 		return "query";

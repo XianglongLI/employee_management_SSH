@@ -47,8 +47,8 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 	 */
 	public String query() {
 		Department d = departmentService.queryById(department.getId());
-		ActionContext.getContext().getValueStack().set("name", d.getName());
-		ActionContext.getContext().getValueStack().set("description", d.getDescription());
+		ActionContext.getContext().getValueStack().setValue("name", d.getName());
+		ActionContext.getContext().getValueStack().setValue("description", d.getDescription());
 		return "query";
 	}
 	
@@ -67,7 +67,7 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		List<Employee> employees = departmentService.getEmployeesById(department.getId());
 		ActionContext.getContext().put("employees", employees);
 		Department d = departmentService.queryById(department.getId());
-		ActionContext.getContext().getValueStack().set("name", d.getName());
+		ActionContext.getContext().getValueStack().setValue("name", d.getName());
 		return "employees";
 	}
 
