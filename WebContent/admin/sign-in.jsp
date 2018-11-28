@@ -79,9 +79,9 @@
                 <form action="<%=basePath %>admin/login" method="post">
                 	<s:fielderror fieldName="loginError" cssStyle="color : red"></s:fielderror>
                     <label>Username</label>
-                    <input type="text" class="span12" placeholder="Username (admin)" name="username">
+                    <input type="text" class="span12" placeholder="Username (admin by defaut)" name="username">
                     <label>Password</label>
-                    <input type="password" class="span12" placeholder="Password (admin)" name="password">
+                    <input type="password" class="span12" placeholder="Password (admin by defaut)" name="password">
                     <input type="submit" class="btn btn-primary pull-right" value="Sign In">
                     <div class="clearfix"></div>
                 </form>
